@@ -1,0 +1,23 @@
+1) Topic creation
+    ./bin/windows/kafka-topics.bat --create
+    --topic twoBrokersTopic
+    --zookeeper localhost:2181
+    --partitions 2
+    --replication-factor 2
+2) Topic description:
+    ./bin/windows/kafka-topics.bat
+    --describe
+    --topic twoBrokersTopic
+    --zookeeper localhost:2181
+
+    Topic: twoBrokersTopic  PartitionCount: 2       ReplicationFactor: 2    Configs:
+    Topic: twoBrokersTopic  Partition: 0    Leader: none    Replicas: 1,0   Isr:
+    Topic: twoBrokersTopic  Partition: 1    Leader: none    Replicas: 0,1   Isr:
+3) Topic message producing:
+    .\bin\windows\kafka-console-producer.bat
+    --topic twoBrokersTopic
+    --bootstrap-server localhost:9092
+
+    .\bin\windows\kafka-console-producer.bat
+    --topic twoBrokersTopic
+    --bootstrap-server localhost:9093
